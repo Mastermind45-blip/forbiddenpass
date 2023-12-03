@@ -141,9 +141,8 @@ def main(wordlist):
                 links = args.target + bypass
                 do_request(links)
 
-if __name__ == "__main__":
-    try:
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            executor.map(main, wordlist)
-    except KeyboardInterrupt as err:
-        sys.exit(0)
+try:
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        executor.map(main, wordlist)
+except KeyboardInterrupt as err:
+    sys.exit(0)
